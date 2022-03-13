@@ -65,6 +65,7 @@ const Body = ({ config, content }: BodyProps) => (
   <body>
     <Header config={config} />
     <InnerHTMLHelper tagName="main" html={content} />
+    <script src="/script.js" defer />
   </body>
 );
 

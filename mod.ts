@@ -32,6 +32,11 @@ export const handler: Handler = async (req) => {
     return new Response(styleFile, responseInit("text/css"));
   }
 
+  if (pathname.startsWith("/script.js")) {
+    const scriptFile = await Deno.readFile("./assets/script.js");
+    return new Response(scriptFile, responseInit("text/javascript"));
+  }
+
   const imagePathUrlPattern = new URLPattern({ pathname: "/images/:path" });
   const imagePathUrlPathname =
     imagePathUrlPattern.exec(req.url)?.pathname.groups.path;
